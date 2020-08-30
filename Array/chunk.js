@@ -1,5 +1,3 @@
-const { testArray } = require("../data");
-
 /*
 
 EXECUTE :=> chuck(["a", "b", "c", "d"], 4)
