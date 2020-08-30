@@ -1,16 +1,27 @@
 const { testArray } = require("../data");
 
+/*
+
+EXECUTE :=> chuck(["a", "b", "c", "d"], 4)
+RESULT  :=> [ [ 'a', 'b', 'c', 'd' ] ]
+
+
+EXECUTE :=> chuck(["a", "b", "c", "d"], 2));
+RESULT  :=> [ [ 'a', 'b' ], [ 'c', 'd' ] ]
+
+*/
+
 function chuck(array, size = 1) {
+  const arr = Array.prototype.slice.call(array); // or Array.from(array) ES2015 or [...array] too work
   const result = [];
-  const len = array.length / size;
+  const len = arr.length / size;
 
   for (let i = 0; i < len; i++) {
-    const newItems = array.splice(0, size);
+    const newItems = arr.splice(0, size);
     result.push(newItems);
   }
 
   return result;
 }
 
-console.log(chuck([...testArray], 4));
-console.log(chuck([...testArray], 2));
+module.exports = chuck;
